@@ -1,0 +1,32 @@
+user
+address
+order
+products
+
+
+user -> order -> address -> order -> products
+user
+  id
+  name
+  email
+  phonenumber
+  order_id
+
+address
+  id
+  zipcode
+  location
+
+order
+  id
+  userid
+  product_list
+  date
+
+products
+  id
+  name
+  qty
+  price
+  total
+
