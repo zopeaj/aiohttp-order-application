@@ -4,23 +4,22 @@ from app.models.product import Product
 
 class ProductRepository:
     def __init__(self):
-        # super(ProductRepository, self).__init__()
-        self.db = Session()
+        pass
 
-    def getProductById(productId: int) -> Product
-        product = self.db.query(Product).filter(Product.getProductId() == productId)
+    def getProductById(db: Session, productId: int) -> Product
+        product = db.query(Product).filter(Product.getProductId() == productId)
         if product is not None:
             return product
         return None
 
-    def deleteProductById(productId: int) -> None:
-        product = self.getProductById(productId)
+    def deleteProductById(db: Session, productId: int) -> None:
+        product = self.getProductById(db, productId)
         if product:
-            self.db.delete(product)
-            self.db.commit()
+            db.delete(product)
+            db.commit()
         return None
 
-    def getMultiProduct(skip: int = 0, limit: int = 0) -> List[Product]:
+    def getMultiProduct(db: Session, skip: int = 0, limit: int = 0) -> List[Product]:
         return (db.query(Product)
                     .offset(skip)
                     .limit(limit)

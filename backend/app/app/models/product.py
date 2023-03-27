@@ -11,3 +11,4 @@ class Product(Base):
     qty = Column(Integer)
     price = Column(Integer)
     total = Column(Integer)
+    category = Column(String)

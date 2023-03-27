@@ -1,8 +1,5 @@
-from typing import Optional
-from pydantic import BaseModel
-from pydantic import EmailStr
-from app.models.order import Order
-
+from pydantic import BaseModel, EmailStr
+from typing import Any, List, Optional
 
 class UserAdd(BaseModel):
     id: int
@@ -11,3 +8,8 @@ class UserAdd(BaseModel):
     lastName: Optional[str] = None
     email: EmailStr = None
     order: Order[] = None
+
+
+class UserUpdate(BaseModel):
+    pass
+

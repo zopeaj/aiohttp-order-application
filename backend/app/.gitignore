@@ -3,3 +3,4 @@ __pycache__
 .flake8
 .prestart.sh
 models.*
+.env

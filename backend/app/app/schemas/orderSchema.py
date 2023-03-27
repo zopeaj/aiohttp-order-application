@@ -19,3 +19,9 @@ class OrderAdd(BaseModel):
     status: Optional[Status] = None
 
 
+class OrderUpdate(BaseModel):
+    pass
+
+class OrderRetrieved(BaseModel):
+    pass
+

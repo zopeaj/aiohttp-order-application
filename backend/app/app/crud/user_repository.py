@@ -2,31 +2,31 @@ from sqlalchemy.orm import Session
 
 class UserRepository:
     def __init__(self):
-        self.db = Session()
 
-    def save(user: User):
+    def save(db: Session, user: User):
         user = User()
         user.setUsername(user.getUserName())
-        self.db.commit(user)
-        self.db.flush()
+        db.add(user)
+        db.commit(user)
+        return user
 
-    def getByUsername(username: str):
-        user = self.db.get(User).filter(User.getusername(), username)
+    def getByUsername(db: Session, username: str):
+        user = db.get(User).filter(User.getusername(), username)
         if user:
             return user
         return None
 
-    def findUserById(userId: int):
-        user = self.db.query(User).filter(User.getId() == userId)
+    def findUserById(db: Session, userId: int):
+        user = db.query(User).filter(User.getId() == userId)
         if user is not None:
             return user
         return None
 
-    def delete(username: str):
-        user = self.db.get(User).filter(username, username)
+    def delete(db: Session, username: str):
+        user = db.get(User).filter(username, username)
         if user:
-            self.db.delete(user)
-            self.db.commit()
+            db.delete(user)
+            db.commit()
         return None
 
 
